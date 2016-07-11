@@ -1,0 +1,91 @@
+ 
+@mixin prefix($property, $value, $prefixes: ()) { 
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+ }
+
+
+ @mixin callout ($padding,$color) {
+  margin: 0 0 1rem 0;
+  padding: $padding;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  position: relative;
+  color: #0a0a0a;
+  background-color: $color; }
+
+
+   @mixin menu {
+  margin: 0;
+  display: block;
+  list-style-type: none;
+  background: #eee;
+
+
+ li {
+    display: table-cell;
+    vertical-align: middle;
+
+/*ajouter float:right & clear: both;*/
+    
+a {
+    
+ padding: 0.7rem 1rem;
+    line-height: 1; 
+     margin-right: 0.25rem;
+    display: inline-block;
+    text-decoration : none;
+
+     } }
+
+ }
+
+
+//mixin centrer HV 
+     
+@mixin center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+
+  @mixin center-height {
+
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+  }
+
+
+  @mixin outline() {
+  	box-shadow: rgba(255, 255, 255, 0.5) 0 1px 0, inset rgba(0, 0, 0, 0.75) 0 1px 0;
+  }
+
+
+  @mixin opacity($opacity) { 
+    opacity: $opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100})";
+ }
+
+
+ @mixin translate-x($value) { 
+    @include prefix(transform, translateX($value), 'webkit' 'ms');
+ }
+
+ @mixin transition($time: 1s, $timing-function: ease-in-out) { 
+    @include prefix(transition, all $time $timing-function, 'webkit');
+ }
+
+ @mixin slide-in-right($time: 1s) { 
+    @include prefix(animation, slide-in-right $time ease-out backwards, 'webkit');
+ }

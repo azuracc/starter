@@ -1,0 +1,9 @@
+body{
+  background-color: orange;
+  @include container(80%);
+
+}
+
+.warning {
+  width: 400px;
+}
